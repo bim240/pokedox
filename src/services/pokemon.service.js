@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { BehaviorSubject } from 'rxjs';
 
 import { fetchWrapper } from '../utils';
@@ -12,6 +13,7 @@ export const pokemonService = {
     return pokemonSubject?.value?.results;
   },
   getAllPokemon,
+  getPokemonDetails,
 };
 
 async function getAllPokemon(url) {
@@ -21,5 +23,15 @@ async function getAllPokemon(url) {
     localStorage.setItem('pokemon', JSON.stringify(pokemon));
   } catch (error) {
     console.error({ error });
+  }
+}
+
+async function getPokemonDetails(name) {
+  try {
+    const pokemonDetails = await fetchWrapper.get(`/${name}`);
+    return { pokemonDetails };
+  } catch (error) {
+    console.error({ error });
+    return { error };
   }
 }
