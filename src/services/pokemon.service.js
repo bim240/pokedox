@@ -9,7 +9,7 @@ const pokemonSubject = new BehaviorSubject(
 export const pokemonService = {
   pokemon: pokemonSubject.asObservable(),
   get pokemonList() {
-    return pokemonSubject.value.results;
+    return pokemonSubject?.value?.results;
   },
   getAllPokemon,
 };

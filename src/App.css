@@ -2,7 +2,7 @@
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap:1rem;
+  gap: 1rem;
   justify-content: space-around;
   text-align: center;
 }
@@ -40,4 +40,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+.pagination_container {
+  display: flex;
+  justify-content: center;
 }

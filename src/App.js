@@ -8,14 +8,14 @@ import { pokemonService } from './services/pokemon.service';
 
 function App() {
   const [currentData, setCurrentData] = useState(
-    pokemonService.pokemonList.slice(0, 19),
+    pokemonService.pokemonList?.slice(0, 19),
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(20);
 
   function handlePagination(page, pageSize) {
     setCurrentData(
-      pokemonService.pokemonList.slice(pageSize * (page - 1), page * pageSize),
+      pokemonService.pokemonList?.slice(pageSize * (page - 1), page * pageSize),
     );
     setCurrentPage(page);
     setPageSize(pageSize);
@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <div className="App">
-        {currentData.map(pokemon => (
+        {currentData?.map(pokemon => (
           <PokemonCard key={pokemon.name} name={pokemon.name} />
         ))}
       </div>
@@ -38,6 +38,7 @@ function App() {
         onChange={handlePagination}
         total={pokemonService?.pokemonList?.length}
         onShowSizeChange={handlePagination}
+        className="pagination_container"
       />
     </>
   );
