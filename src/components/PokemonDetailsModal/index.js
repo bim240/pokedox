@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-object-injection */
 import { StyledPokemonDetailsModal } from './StyledPokemonDetailsModal';
 
 function PokemonDetailsModal(props) {
