@@ -57,7 +57,8 @@ function App() {
   useEffect(() => {
     setCurrentData(currentAllPokemonList?.slice(0, 19));
     setCurrentPage(1);
-  }, [currentAllPokemonList]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentAllPokemonList, pokemonService.pokemonList]);
 
   useEffect(() => {
     pokemonService.getAllPokemon('?limit=100&offset=0');
