@@ -55,7 +55,7 @@ function App() {
   }
 
   useEffect(() => {
-    setCurrentData(currentAllPokemonList.slice(0, 19));
+    setCurrentData(currentAllPokemonList?.slice(0, 19));
     setCurrentPage(1);
   }, [currentAllPokemonList]);
 
