@@ -67,7 +67,7 @@ function App() {
     <>
       <SearchPokemon onSearch={handleSearch} />
       <div className="App">
-        {currentData.length ? (
+        {currentData?.length ? (
           currentData?.map(pokemon => (
             <PokemonCard
               key={pokemon.name}
