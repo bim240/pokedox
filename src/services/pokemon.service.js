@@ -21,6 +21,7 @@ async function getAllPokemon(url) {
     const pokemon = await fetchWrapper.get(url || '/');
     pokemonSubject.next(pokemon);
     localStorage.setItem('pokemon', JSON.stringify(pokemon));
+    location.reload();
   } catch (error) {
     console.error({ error });
   }

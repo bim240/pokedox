@@ -58,10 +58,12 @@ function App() {
     setCurrentData(currentAllPokemonList?.slice(0, 19));
     setCurrentPage(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentAllPokemonList, pokemonService.pokemonList]);
+  }, [currentAllPokemonList, localStorage]);
 
   useEffect(() => {
-    pokemonService.getAllPokemon('?limit=100&offset=0');
+    if (!localStorage.getItem('pokemon')) {
+      pokemonService.getAllPokemon('?limit=100&offset=0');
+    }
   }, []);
 
   return (
